@@ -1,0 +1,20 @@
+﻿apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: poc-project
+  namespace: argocd
+spec:
+  description: Isolated local GitOps POC
+  sourceRepos:
+    - https://github.com/nanithayadav-02/lnf-gitops-poc.git
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: poc-qa
+    - server: https://kubernetes.default.svc
+      namespace: poc-prod
+  clusterResourceWhitelist: []
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: Service
