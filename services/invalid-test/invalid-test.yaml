@@ -4,6 +4,6 @@ metadata:
   name: invalid-test
 spec:
   ports:
-    - port: not-a-number
+    - port: 8080
   selector:
     app: invalid-test
