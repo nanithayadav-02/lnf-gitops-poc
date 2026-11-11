@@ -1,7 +1,13 @@
-﻿apiVersion: kustomize.config.k8s.io/v1beta1
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base
+
 replicas:
   - name: sample-app
     count: 2
+
+images:
+  - name: nginx
+    newName: ghcr.io/nanithayadav-02/sample-app
+    digest: sha256:ab45f20a1ea39395c8c8b0fc92870a85e537fcbedd1459aeb68bb3d448c65488
